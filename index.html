@@ -3,7 +3,7 @@
 <title>Aimia — Core AI Pattern Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Hanken+Grotesk:wght@600..800&display=swap" rel="stylesheet">
 <style>
   :root{
     /* ---- brand ---- */
@@ -27,12 +27,16 @@
     --lime-tint:    #F7F9E3;
 
     /* ---- type ---- */
-    --serif: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --headline: "Hanken Grotesk", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     --sans:  "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
-    /* type scale — 1.25 major third */
+    /* type scale — a golden-ratio (φ ≈ 1.618) progression from body size up,
+       built entirely from √φ half-steps (≈1.272x) for a gentler climb:
+       16.5 → 21 → 27 → 34 → 43. Every consecutive PAIR of steps still
+       compounds to a full φ jump (16.5→27 and 27→43 are both ≈ ×1.618),
+       so the ratio math holds while no single header feels oversized. */
     --t-xs: 13px; --t-sm: 15px; --t-md: 16.5px;
-    --t-lg: 20px; --t-xl: 25px; --t-2xl: 31px; --t-3xl: 44px;
+    --t-lg: 21px; --t-xl: 27px; --t-2xl: 34px; --t-3xl: 43px;
 
     --r-sm: 4px; --r-md: 8px;
   }
@@ -46,8 +50,6 @@
       --blue-tint:#1C2434; --magenta-tint:#2E1D26; --lime-tint:#282A18;
     }
     .rule,.callout{background:#242615 !important; border-left-color:#8A9330 !important}
-    .chev{background:#1C2434 !important}
-    .p > summary:hover .chev{background:#243150 !important}
   }
 
   *{box-sizing:border-box}
@@ -65,11 +67,11 @@
   /* ---------------- nav ---------------- */
   nav{position:sticky; top:0; align-self:start; max-height:100vh; overflow-y:auto;
       padding:48px 0 64px}
-  nav .brandmark{font-family:var(--serif); font-weight:600; font-size:var(--t-lg);
-                 letter-spacing:-.015em; line-height:1.2}
-  nav .brandsub{font-size:var(--t-xs); color:var(--ink-3); margin-bottom:32px}
-  nav h4{font-family:var(--serif); font-style:italic; font-weight:500;
-         font-size:var(--t-sm); color:var(--ink-3); margin:28px 0 8px; letter-spacing:0}
+  nav .brandmark{font-family:var(--sans); font-weight:700; font-size:var(--t-lg);
+                 color:var(--ink); letter-spacing:-.005em; line-height:1.2}
+  nav .brandsub{font-size:var(--t-xs); color:var(--ink-3); margin:10px 0 32px}
+  nav h4{font-family:var(--sans); font-weight:600; font-size:var(--t-sm); color:var(--ink-3);
+         margin:28px 0 8px; letter-spacing:.01em}
   nav a{display:flex; align-items:center; gap:0; padding:6px 0; color:var(--ink-2);
         text-decoration:none; font-size:var(--t-xs); min-height:32px; line-height:1.35;
         border-bottom:1px solid transparent}
@@ -79,15 +81,15 @@
 
   /* ---------------- main ---------------- */
   main{padding:48px 0 128px; min-width:0}
-  .eyebrow{font-family:var(--serif); font-style:italic; font-size:var(--t-sm);
-           color:var(--magenta); margin:0 0 8px}
-  h1{font-family:var(--serif); font-weight:600; font-size:var(--t-3xl); line-height:1.08;
-     letter-spacing:-.025em; margin:0 0 16px}
-  h2{font-family:var(--serif); font-weight:600; font-size:var(--t-2xl); line-height:1.15;
-     letter-spacing:-.02em; margin:0 0 10px}
+  .eyebrow{font-family:var(--sans); font-weight:600; font-size:var(--t-sm);
+           letter-spacing:.02em; color:var(--magenta); margin:0 0 10px}
+  h1{font-family:var(--headline); font-weight:800; font-size:var(--t-3xl);
+     line-height:1.05; letter-spacing:-.02em; margin:0 0 24px}
+  h2{font-family:var(--headline); font-weight:700; font-size:var(--t-2xl);
+     line-height:1.1; letter-spacing:-.015em; margin:0 0 14px}
   h2:first-of-type{margin-top:0}
-  h3{font-family:var(--serif); font-weight:600; font-size:var(--t-xl); line-height:1.2;
-     letter-spacing:-.015em; margin:0 0 8px}
+  h3{font-family:var(--sans); font-weight:700; font-size:var(--t-xl);
+     line-height:1.2; letter-spacing:-.005em; margin:0 0 10px}
   .lede{font-size:var(--t-lg); color:var(--ink-2); line-height:1.5; max-width:34em;
         margin:0 0 40px}
   .intro{color:var(--ink-2); max-width:34em; margin:0 0 24px; font-size:var(--t-sm)}
@@ -112,8 +114,8 @@
   dl.trustlist{margin:20px 0 0; max-width:38em}
   dl.trustlist div{padding:14px 0; border-bottom:1px solid var(--line-2)}
   dl.trustlist div:last-child{border-bottom:0}
-  dl.trustlist dt{font-family:var(--serif); font-size:var(--t-lg); font-weight:600;
-                  letter-spacing:-.01em; margin-bottom:2px}
+  dl.trustlist dt{font-family:var(--sans); font-size:var(--t-lg);
+                  font-weight:700; letter-spacing:-.005em; margin-bottom:2px}
   dl.trustlist dd{margin:0; color:var(--ink-2); font-size:var(--t-sm); max-width:34em}
 
   /* ---------------- pattern rows ---------------- */
@@ -126,16 +128,15 @@
   .p > summary:hover .ttl{color:var(--blue)}
   .p > summary:focus-visible{outline:2px solid var(--blue); outline-offset:4px;
                              border-radius:var(--r-sm)}
-  .ttl{font-family:var(--serif); font-weight:600; font-size:var(--t-lg);
-       letter-spacing:-.012em; line-height:1.25; flex:1; min-width:0}
+  .ttl{font-family:var(--sans); font-weight:700; font-size:var(--t-lg);
+       letter-spacing:-.005em; line-height:1.3; flex:1; min-width:0}
   .ttl small{display:block; font-family:var(--sans); font-weight:400; font-size:var(--t-sm);
              color:var(--ink-2); margin-top:4px; letter-spacing:0; line-height:1.45}
   .chev{flex:none; width:28px; height:28px; align-self:flex-start; margin-top:2px;
-         border-radius:100px; display:grid; place-items:center; color:var(--blue);
-         background:var(--blue-tint);
-         transition:transform 200ms cubic-bezier(.2,.7,.3,1), background 160ms ease-out}
+         display:grid; place-items:center; color:var(--ink-3);
+         transition:transform 200ms cubic-bezier(.2,.7,.3,1), color 160ms ease-out}
   .chev svg{width:16px; height:16px; display:block}
-  .p > summary:hover .chev{background:#DCE6FA}
+  .p > summary:hover .chev{color:var(--blue)}
   .p[open] .chev{transform:rotate(180deg)}
   .body{padding:0 0 48px 0}
   @media (min-width:900px){ .body{padding-left:0} }
@@ -143,8 +144,8 @@
   .body > *:last-child{margin-bottom:0}
 
   /* ---------------- inline pieces ---------------- */
-  .lbl{font-family:var(--serif); font-style:italic; font-weight:500; font-size:var(--t-md);
-       color:var(--ink-2); margin:24px 0 8px; letter-spacing:0}
+  .lbl{font-family:var(--sans); font-weight:600; font-size:var(--t-sm);
+       color:var(--ink-2); margin:24px 0 8px; letter-spacing:.01em}
 
   /* banners — rule and callout share one lime treatment (consistent) */
   .rule{background:linear-gradient(180deg,#F1F6C8,#FBFCEE); border-left:3px solid #C4CE4A;
@@ -161,8 +162,8 @@
         max-width:44em}
   @media (max-width:860px){ .pair{grid-template-columns:1fr} }
   .ex{border-radius:var(--r-md); padding:16px 18px; font-size:var(--t-sm); line-height:1.55}
-  .ex .tag{font-family:var(--serif); font-style:italic; font-size:var(--t-sm);
-           font-weight:600; display:block; margin-bottom:8px; letter-spacing:0}
+  .ex .tag{font-family:var(--sans); font-size:var(--t-sm);
+           font-weight:700; display:block; margin-bottom:8px; letter-spacing:.01em}
   .ex.no{background:var(--magenta-tint)}
   .ex.no .tag{color:var(--magenta)}
   .ex.yes{background:var(--blue-tint)}
@@ -183,24 +184,21 @@
         font-size:var(--t-sm)}
   th,td{text-align:left; padding:12px 14px 12px 0; border-bottom:1px solid var(--line-2);
         vertical-align:top}
-  th{font-family:var(--serif); font-style:italic; font-weight:500; color:var(--ink-3);
-     letter-spacing:0; font-size:var(--t-sm); padding-bottom:8px}
+  th{font-family:var(--sans); font-weight:600; color:var(--ink-3);
+     letter-spacing:.01em; font-size:var(--t-sm); padding-bottom:8px}
   td:last-child,th:last-child{padding-right:0}
 
   /* ---------------- 2x2 matrix ---------------- */
   .quad{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0; max-width:44em}
   @media (max-width:760px){ .quad{grid-template-columns:1fr} }
   .q{border-radius:var(--r-md); padding:16px 18px; font-size:var(--t-sm); line-height:1.5}
-  .q b{font-family:var(--serif); font-size:var(--t-lg); font-weight:600; display:block;
-       margin-bottom:4px; letter-spacing:-.01em}
+  .q b{font-family:var(--sans); font-size:var(--t-lg); font-weight:700;
+       display:block; margin-bottom:4px; letter-spacing:-.005em}
   .q .cond{font-size:var(--t-xs); color:var(--ink-3); display:block; margin-bottom:8px}
   .q.go{background:var(--blue-tint)}
   .q.open{background:var(--lime-tint); box-shadow:inset 0 0 0 2px var(--lime)}
   .q.care{background:var(--magenta-tint)}
   .q.park{background:var(--surface)}
-
-               border-bottom:1px solid var(--line-2); cursor:pointer;
-               font-size:var(--t-sm); min-height:44px}
 
   footer{color:var(--ink-3); font-size:var(--t-xs); margin-top:160px; padding-top:24px;
          border-top:1px solid var(--line-2)}
@@ -243,7 +241,7 @@
         border-bottom:1px solid var(--line)}
     nav a{min-height:44px}
     main{padding-top:32px}
-    h1{font-size:33px} .lede{font-size:17px}
+    h1{font-size:32px} .lede{font-size:17px}
     h2{font-size:25px; margin-top:72px}
     .sec-head{margin-top:104px}
     section + section .sec-head{margin-top:104px}
